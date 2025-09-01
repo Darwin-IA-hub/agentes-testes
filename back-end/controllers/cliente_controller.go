@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"back-end/models"
 	"back-end/usecases"
 	"database/sql"
 	"fmt"
@@ -55,7 +56,19 @@ func (controller ClienteController) IsRoboLigado(c *gin.Context){
 }
 
 func (controller ClienteController) ArmazenaImagem(c *gin.Context){
-	type Imagem struct{
-		CaminhoImagem string `json:caminhoImagem`
+	var imagem models.Imagem
+
+	err := c.BindJSON(&imagem)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"Error":err.Error()})
+		return
 	}
+
+	err = controller.useCase.ArmazenaImagem(imagem.CaminhoImagem, imagem.TelefoneCliente, imagem.NomeArquivo)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"Error":err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, "imagem salvada")
 }
