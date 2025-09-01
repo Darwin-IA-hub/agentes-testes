@@ -54,3 +54,8 @@ func (controller ClienteController) IsRoboLigado(c *gin.Context){
 	c.String(http.StatusOK, "false") // Robô está desligado
 }
 
+func (controller ClienteController) ArmazenaImagem(c *gin.Context){
+	type Imagem struct{
+		CaminhoImagem string `json:caminhoImagem`
+	}
+}
