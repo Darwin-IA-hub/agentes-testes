@@ -12,7 +12,7 @@ const (
 	port     = 5432
 	user     = "evolution"
 	password = "Albino29$$$$"
-	dbname   = "arena015_Gabi"
+	dbname   = "agentes_testes"
 )
 
 func ConnectDB() (*sqlx.DB, error) {
