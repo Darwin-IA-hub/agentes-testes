@@ -56,7 +56,7 @@ func (usecase ClienteUseCases) ArmazenaImagem(caminho, telefone, nomeArquivo str
 	}
 
 	//criar o arquivo
-	caminhoNovoArquivo := telefone + "/" + nomeArquivo
+	caminhoNovoArquivo := caminhoNovoDir + "/" + nomeArquivo
 	novoArquivo, err := os.Create(caminhoNovoArquivo)
 	if err != nil {
 		return err
