@@ -79,6 +79,7 @@ func main() {
 	routes.SetupContactRoutes(server, controllers.NewContactController(usecases.NewContactUseCases(repository.NewContactRepository(dbConnection))))
 	routes.SetupLeadRoutes(server, controllers.NewLeadController(usecases.NewLeadUseCases(repository.NewLeadRepository(dbConnection))))
 
-	port := server.Run(":3032")
+	port := server.Run(":3040")
 	fmt.Println("Servidor rodando na porta: ", port)
 }
+
