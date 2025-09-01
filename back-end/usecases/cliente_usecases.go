@@ -49,7 +49,8 @@ func (usecase ClienteUseCases) ArmazenaImagem(caminho, telefone, nomeArquivo str
 	defer file.Close()
 
 	//criar o diretorio
-	err = os.MkdirAll(telefone, 0755)
+	caminhoNovoDir := "/var/www/html/clientes/agentes-testes/uploads/"+telefone
+	err = os.MkdirAll(caminhoNovoDir, 0755)
 	if err != nil {
 		return err
 	}
