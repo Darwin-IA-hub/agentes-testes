@@ -10,5 +10,5 @@ func SetupClienteRoutes(router *gin.Engine, clienteController controllers.Client
 	router.POST("/desligar/:telefone", clienteController.DesligaRobo)
 	router.DELETE("/ligar/:telefone", clienteController.LigaRobo)
 	router.GET("/ligado/:telefone", clienteController.IsRoboLigado)
-	router.POST("/imagem",clienteController.IsRoboLigado)
+	router.POST("/imagem",clienteController.ArmazenaImagem)
 }
